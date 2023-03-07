@@ -143,13 +143,11 @@ test("email validations", () => {
   const emailSchema = z.string().email();
   expect(
     validEmails.every((email) => {
-      console.log(email);
       return emailSchema.safeParse(email).success;
     })
   ).toBe(true);
   expect(
     invalidEmails.every((email) => {
-      console.log(email);
       return emailSchema.safeParse(email).success === false;
     })
   ).toBe(true);
